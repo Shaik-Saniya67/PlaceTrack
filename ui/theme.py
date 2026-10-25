@@ -156,17 +156,35 @@ hr { border-color: var(--line) !important; margin: 1.6rem 0 !important; }
   background: linear-gradient(180deg, #a692ff 0%, #7d62f5 100%) !important; box-shadow: 0 1px 0 rgba(255,255,255,.3) inset, 0 12px 26px -6px rgba(114,84,240,.7);
 }
 
-/* ---------- inputs ---------- */
+/* ---------- inputs: light field, dark text (always readable) ---------- */
 [data-baseweb="input"], [data-baseweb="base-input"], [data-baseweb="select"] > div, [data-baseweb="textarea"],
-.stTextInput input, .stNumberInput input, .stDateInput input, .stTimeInput input, .stTextArea textarea {
-  background: rgba(255,255,255,.035) !important; border-radius: 11px !important; color: var(--ink) !important;
+.stTextInput input, .stNumberInput input, .stDateInput input, .stTimeInput input, .stTextArea textarea,
+.stSelectbox [data-baseweb="select"] > div, .stMultiSelect [data-baseweb="select"] > div {
+  background: #f3f4f9 !important; color: #0b0d12 !important; border-radius: 11px !important;
 }
-[data-baseweb="input"], [data-baseweb="select"] > div, [data-baseweb="textarea"] { border: 1px solid var(--line) !important; transition: border-color .18s, box-shadow .18s; }
+.stTextInput input, .stNumberInput input, .stDateInput input, .stTimeInput input, .stTextArea textarea,
+[data-baseweb="input"] input, [data-baseweb="base-input"] input, [data-baseweb="textarea"] textarea,
+[data-baseweb="select"] input {
+  color: #0b0d12 !important; -webkit-text-fill-color: #0b0d12 !important; caret-color: #5b46d6 !important;
+  background: transparent !important; font-weight: 500;
+}
+[data-baseweb="select"] *, .stNumberInput button, .stNumberInput button * { color: #0b0d12 !important; }
+[data-baseweb="select"] svg, .stNumberInput svg, .stDateInput svg, .stTimeInput svg { fill: #3a3f55 !important; color: #3a3f55 !important; }
+::placeholder, input::placeholder, textarea::placeholder { color: #6b7088 !important; -webkit-text-fill-color: #6b7088 !important; opacity: 1 !important; }
+input:-webkit-autofill, input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #0b0d12 !important; -webkit-box-shadow: 0 0 0 1000px #f3f4f9 inset !important; caret-color: #5b46d6;
+}
+[data-baseweb="input"], [data-baseweb="select"] > div, [data-baseweb="textarea"] { border: 1px solid rgba(255,255,255,.22) !important; transition: border-color .18s, box-shadow .18s; }
 [data-baseweb="input"]:focus-within, [data-baseweb="select"] > div:focus-within, [data-baseweb="textarea"]:focus-within {
-  border-color: rgba(139,108,255,.8) !important; box-shadow: 0 0 0 3px rgba(139,108,255,.18);
+  border-color: rgba(139,108,255,.9) !important; box-shadow: 0 0 0 3px rgba(139,108,255,.28);
 }
 label[data-testid="stWidgetLabel"] p { font-size: .8rem; font-weight: 550; letter-spacing: .01em; color: var(--ink-soft); }
-[data-baseweb="tag"] { background: var(--accent-soft) !important; border-radius: 8px !important; }
+[data-baseweb="tag"] { background: #e3dcff !important; border-radius: 8px !important; }
+[data-baseweb="tag"] * { color: #1b1340 !important; }
+/* dropdown menus stay dark, so their text stays light */
+[data-baseweb="popover"] [role="listbox"], [data-baseweb="popover"] ul { background: #14151f !important; }
+[data-baseweb="popover"] li, [data-baseweb="popover"] li * { color: #eceef6 !important; }
+[data-baseweb="popover"] li:hover, [data-baseweb="popover"] li[aria-selected="true"] { background: rgba(139,108,255,.22) !important; }
 
 /* ---------- tabs ---------- */
 [data-baseweb="tab-list"] { gap: 4px; border-bottom: 1px solid var(--line); }
